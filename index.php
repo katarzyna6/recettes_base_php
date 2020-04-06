@@ -4,15 +4,15 @@ var_dump($_GET);
 $page = isset($_GET["page"])? $_GET["page"] : "home";
 
 switch($page) {
-    case "home" : echo "Vous avez demandé la page d'accueil";
+    case "home" : $include = "home.html";
     break;
-    case "entree" : echo "Vous avez demandé la page entrées";
+    case "entree" : $include = "entree.html";
     break;
-    case "plat" : echo "Vous avez demandé la page plats";
+    case "plat" : $include = "plat.html";
     break;
-    case "dessert" : echo "Vous avez demandé la page desserts";
+    case "dessert" : $include = "dessert.html";
     break;
-    default: echo "Vous avez demandé la page d'accueil";
+    default: "home.html";
 }
 
 ?>
@@ -32,7 +32,7 @@ switch($page) {
         </header>
         
         <section>
-        <?php require "html/menu.html" ?>
+        <?php require "html/$include" ?>
         </section>
     </body>
 
