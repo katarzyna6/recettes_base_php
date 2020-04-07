@@ -1,20 +1,29 @@
 <?php
-var_dump($_GET);
+    //var_dump($_GET);
 
-$page = isset($_GET["page"])? $_GET["page"] : "home";
 
-switch($page) {
-    case "home" : $include = "home.html";
-    break;
-    case "entree" : $include = "entree.html";
-    break;
-    case "plat" : $include = "plat.html";
-    break;
-    case "dessert" : $include = "dessert.html";
-    break;
-    default: "home.html";
-}
+    // ROUTER 
+    $page = isset($_GET["page"])? $_GET["page"] : "home";
 
+    switch ($page) {
+        case "home":
+            $include = "recettes/home.html";
+            break;
+        case "entree":
+            $include = "recettes/entree.php";
+            break;
+        case "plat":
+            $include = "recettes/plat.html";
+            break;
+        case "dessert":
+            $include = "recettes/dessert.html";
+            break;
+        case "recette":
+            $include = "html/recette.php";
+            break;
+        default : $include = "recettes/home.html";
+    }
+    // ---
 ?>
 
 <!DOCTYPE html>
@@ -28,12 +37,13 @@ switch($page) {
     
     <body>
         <header>
-            <?php require "html/menu.html" ?>
+            <?php require "html/menu.php" ?>
         </header>
-        
-        <section>
-        <?php require "html/$include" ?>
+
+        <section class="content">
+            <?php require $include ?>
         </section>
+        
     </body>
 
 </html>
