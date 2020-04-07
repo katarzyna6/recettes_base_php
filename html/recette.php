@@ -4,6 +4,20 @@ require "recettes.php";
 //var_dump($recette_test);
 $recette = $recette1;
 
+$ingredients = explode("///", $recette["ingredients"]);
+
+$list_ingredients = "";
+foreach($ingredients as $elem) {
+    $list_ingredients .= "<li>$elem</li>";
+}
+
+$etapes = explode("///", $recette["etapes"]);
+
+$list_etapes = "";
+foreach($etapes as $elem) {
+    $list_etapes .= "<li>$elem</li>";
+}
+
 ?>
 
 <h1 class="recipe-head"><?= $recette["titre"] ?></h1>
@@ -29,20 +43,25 @@ $recette = $recette1;
         </table>
 
         <h2>Ingrédients</h2>
-        <?= $recette["ingredients"] ?>
-        <!-- <ul>
-            <li>1 paquet de pâtes de lasagnes</li>
+
+        <ul>
+            <?= $list_ingredients ?>
+        </ul>
+            <!--<li>1 paquet de pâtes de lasagnes</li>
             <li>3 oignons jaunes </li>
             <li>3 gousses d'ail</li>
             <li>1 branche de céleri</li>
             <li>1 carotte</li>
-            <li>etc ...</li>
-        </ul> -->
+            <li>etc ...</li>-->
+         
     </div>
 
     <div class="col-6">
         <h2>Etapes</h2>
-        <?= $recette["etapes"] ?>
+        
+        <ol>
+            <?= $list_ingredients ?>
+        </ol>
         <!-- <ol>
             <li>Faire revenir gousses hachées d'ail et les oignons émincés dans un peu d'huile d'olive.</li>
             <li> Ajouter la carotte et la branche de céleri hachée puis la viande et faire revenir le tout.</li>
